@@ -2,7 +2,7 @@
 
 # EGN — Equivariant Geodesic Networks
 
-**A universal classifier on the manifold of symmetric positive definite matrices, packaged like a convolutional network.**
+**Implementation of	Equivariant Geodesic Networks: End-to-End Classification on the SPD Manifold. (Under review at AAAI 27)**
 
 [![PyPI](https://img.shields.io/pypi/v/egnlib.svg)](https://pypi.org/project/egnlib/)
 [![Python](https://img.shields.io/pypi/pyversions/egnlib.svg)](https://pypi.org/project/egnlib/)
