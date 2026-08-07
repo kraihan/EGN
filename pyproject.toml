@@ -1,0 +1,92 @@
+# ---------------------------------------------------------------------------
+# EGN - fully declarative packaging. No setup.py, no setup.cfg, no build code.
+# ---------------------------------------------------------------------------
+
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+# --------------------------------------------------------------- PEP 621 core
+[project]
+name = "egnlib"                    # PyPI distribution name; `import egn`
+version = "0.2.2"
+description = "Equivariant Geodesic Networks: a universal SPD-manifold classifier for PyTorch"
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Md Raihan Khan", email = "kraihan918@gmail.com" }]
+maintainers = [{ name = "Md Raihan Khan", email = "kraihan918@gmail.com" }]
+keywords = [
+    "riemannian-geometry",
+    "spd-manifold",
+    "covariance",
+    "eeg",
+    "biosignal",
+    "deep-learning",
+    "pytorch",
+    "classification",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Typing :: Typed",
+]
+dependencies = [
+    "torch>=2.0",
+    "numpy>=1.21",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "pytest-cov>=4", "ruff>=0.4", "build>=1.0", "twine>=5.0"]
+sklearn = ["scikit-learn>=1.0"]
+docs = ["mkdocs>=1.5", "mkdocs-material>=9.0", "mkdocstrings[python]>=0.24"]
+
+[project.urls]
+Homepage = "https://github.com/kraihan/EGN"
+Repository = "https://github.com/kraihan/EGN"
+Issues = "https://github.com/kraihan/EGN/issues"
+Changelog = "https://github.com/kraihan/EGN/blob/main/CHANGELOG.md"
+Documentation = "https://github.com/kraihan/EGN/tree/main/docs"
+
+[project.scripts]
+egn-benchmark = "egn.benchmark:main"
+
+# ------------------------------------------------------------ setuptools bits
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["egn*"]
+
+[tool.setuptools.package-data]
+egn = ["py.typed"]
+
+# -------------------------------------------------------------------- tooling
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers"
+filterwarnings = ["ignore::UserWarning"]
+
+[tool.coverage.run]
+source = ["egn"]
+branch = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]

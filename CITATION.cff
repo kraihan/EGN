@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+title: "EGN: Equivariant Geodesic Networks on the SPD manifold"
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - family-names: Khan
+    given-names: Md Raihan
+    email: kraihan918@gmail.com
+    affiliation: "North Western University, Bangladesh"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+repository-code: "https://github.com/kraihan/EGN"
+url: "https://github.com/kraihan/EGN"
+abstract: >-
+  EGN is a deep classifier on the manifold of symmetric positive definite
+  matrices. Every intermediate representation is an exact SPD matrix under the
+  affine-invariant Riemannian metric, constrained parameters are updated by
+  retraction, and the spectral operators are differentiable through repeated
+  eigenvalues. The package exposes a scikit-learn style estimator that infers
+  matrix size, channel count and class vocabulary from the data, so one object
+  applies to EEG, radar, skeleton and imaging descriptors without dataset
+  specific code.
+keywords:
+  - riemannian-geometry
+  - spd-manifold
+  - covariance
+  - deep-learning
+  - pytorch
+  - eeg
+  - brain-computer-interface
+license: MIT
+version: 0.2.2
+date-released: "2026-08-08"
